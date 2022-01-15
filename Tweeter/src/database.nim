@@ -59,7 +59,7 @@ proc findMessages*(database: Database, usernames: seq[string],
   var whereClause = " WHERE "
   for i in 0 ..< usernames.len:
     whereClause.add("username = ? ")
-    if i != usernames.len:
+    if i != usernames.len - 1:
       whereClause.add("or ")
 
   let messages = database.db.getAllRows(
